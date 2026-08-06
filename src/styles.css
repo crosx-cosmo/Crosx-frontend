@@ -1,0 +1,372 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * CrosX design system — Black / White / Red only.
+ * All tokens live here. Components must never hardcode colors.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.14 0.005 285);
+  --foreground: oklch(0.98 0 0);
+
+  --surface: oklch(0.18 0.006 285);
+  --surface-2: oklch(0.22 0.008 285);
+
+  --card: oklch(0.18 0.006 285);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.17 0.006 285);
+  --popover-foreground: oklch(0.98 0 0);
+
+  /* Red from the CrosX mark */
+  --brand: oklch(0.58 0.235 27.6);
+  --brand-soft: oklch(0.66 0.2 27.6);
+
+  --primary: oklch(0.58 0.235 27.6);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.24 0.008 285);
+  --secondary-foreground: oklch(0.98 0 0);
+
+  --muted: oklch(0.22 0.006 285);
+  --muted-foreground: oklch(0.72 0.008 285);
+
+  --accent: oklch(0.26 0.02 27.6);
+  --accent-foreground: oklch(0.98 0 0);
+
+  --destructive: oklch(0.58 0.235 27.6);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(1 0 0 / 10%);
+  --hairline: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.58 0.235 27.6);
+
+  --gradient-brand: linear-gradient(135deg, var(--brand-soft), var(--brand));
+  --gradient-ink: linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.78 0.005 285) 100%);
+  --shadow-glow: 0 12px 40px -18px oklch(0.58 0.235 27.6 / 55%);
+  --shadow-lux:
+    0 1px 0 0 oklch(1 0 0 / 6%) inset, 0 20px 50px -30px oklch(0 0 0 / 85%),
+    0 60px 120px -60px oklch(0 0 0 / 70%);
+  --shadow-plate: 0 1px 0 0 oklch(1 0 0 / 6%) inset;
+  --grid-line: oklch(1 0 0 / 4%);
+}
+
+/* ---------- Light theme ---------- */
+html.light {
+  color-scheme: light;
+
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.17 0.005 285);
+
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.955 0.002 285);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.17 0.005 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.17 0.005 285);
+
+  --brand: oklch(0.55 0.235 27.6);
+  --brand-soft: oklch(0.62 0.21 27.6);
+
+  --primary: oklch(0.55 0.235 27.6);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.94 0.002 285);
+  --secondary-foreground: oklch(0.17 0.005 285);
+
+  --muted: oklch(0.95 0.002 285);
+  --muted-foreground: oklch(0.45 0.008 285);
+
+  --accent: oklch(0.95 0.02 27.6);
+  --accent-foreground: oklch(0.2 0.02 27.6);
+
+  --border: oklch(0.17 0.005 285 / 12%);
+  --hairline: oklch(0.17 0.005 285 / 9%);
+  --input: oklch(0.17 0.005 285 / 16%);
+
+  --gradient-ink: linear-gradient(180deg, oklch(0.18 0.005 285) 0%, oklch(0.42 0.005 285) 100%);
+  --shadow-glow: 0 14px 40px -20px oklch(0.55 0.235 27.6 / 45%);
+  --shadow-lux:
+    0 1px 0 0 oklch(1 0 0 / 70%) inset, 0 18px 45px -28px oklch(0.17 0.005 285 / 28%),
+    0 50px 110px -60px oklch(0.17 0.005 285 / 22%);
+  --shadow-plate: 0 1px 0 0 oklch(1 0 0 / 70%) inset;
+  --grid-line: oklch(0.17 0.005 285 / 6%);
+}
+
+html {
+  transition:
+    background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background: var(--brand);
+    color: var(--primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-soft);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* ---------- Utilities ---------- */
+
+@utility glass {
+  background: color-mix(in oklab, var(--surface) 62%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-plate);
+}
+
+@utility plate {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--surface) 92%, transparent),
+    color-mix(in oklab, var(--background) 92%, transparent)
+  );
+  border: 1px solid var(--hairline);
+}
+
+@utility text-ink {
+  background: var(--gradient-ink);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-brand-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility glow-brand {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility hairline-t {
+  border-top: 1px solid var(--hairline);
+}
+
+@utility underline-sweep {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    background: var(--brand);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &:hover::after,
+  &[data-status="active"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility ring-brand-soft {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 35%, transparent);
+}
+
+@utility marquee-track {
+  animation: crosx-marquee 38s linear infinite;
+  will-change: transform;
+}
+
+@keyframes crosx-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes crosx-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@utility float-slow {
+  animation: crosx-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ---------- Premium depth & interaction ---------- */
+
+@utility shadow-lux {
+  box-shadow: var(--shadow-lux);
+}
+
+@utility sheen {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform: translateX(-120%);
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      color-mix(in oklab, var(--foreground) 10%, transparent) 50%,
+      transparent 80%
+    );
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &:hover::before {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes crosx-pulse-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+@utility pulse-ring {
+  animation: crosx-pulse-ring 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes crosx-sweep {
+  from {
+    transform: translateY(120%);
+  }
+  to {
+    transform: translateY(-320%);
+  }
+}
+
+@utility scan-sweep {
+  animation: crosx-sweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .float-slow,
+  .pulse-ring,
+  .scan-sweep {
+    animation: none !important;
+  }
+}
